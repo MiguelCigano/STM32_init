@@ -794,40 +794,40 @@ int main(void)
  8000684:	71fb      	strb	r3, [r7, #7]
 
 		GPIO_TogglePin(LED.pGPIOx, GPIO_PIN_6);
- 8000686:	4b2d      	ldr	r3, [pc, #180]	; (800073c <main+0xc4>)
+ 8000686:	4b2e      	ldr	r3, [pc, #184]	; (8000740 <main+0xc8>)
  8000688:	681b      	ldr	r3, [r3, #0]
  800068a:	2106      	movs	r1, #6
  800068c:	4618      	mov	r0, r3
  800068e:	f7ff ff84 	bl	800059a <GPIO_TogglePin>
 		GPIO_TogglePin(LED.pGPIOx, GPIO_PIN_5);
- 8000692:	4b2a      	ldr	r3, [pc, #168]	; (800073c <main+0xc4>)
+ 8000692:	4b2b      	ldr	r3, [pc, #172]	; (8000740 <main+0xc8>)
  8000694:	681b      	ldr	r3, [r3, #0]
  8000696:	2105      	movs	r1, #5
  8000698:	4618      	mov	r0, r3
  800069a:	f7ff ff7e 	bl	800059a <GPIO_TogglePin>
 		delay(2400000);
- 800069e:	4828      	ldr	r0, [pc, #160]	; (8000740 <main+0xc8>)
+ 800069e:	4829      	ldr	r0, [pc, #164]	; (8000744 <main+0xcc>)
  80006a0:	f7ff ff8f 	bl	80005c2 <delay>
 
 		GPIO_WritePin(LED.pGPIOx, GPIO_PIN_6, RESET);
- 80006a4:	4b25      	ldr	r3, [pc, #148]	; (800073c <main+0xc4>)
+ 80006a4:	4b26      	ldr	r3, [pc, #152]	; (8000740 <main+0xc8>)
  80006a6:	681b      	ldr	r3, [r3, #0]
  80006a8:	2200      	movs	r2, #0
  80006aa:	2106      	movs	r1, #6
  80006ac:	4618      	mov	r0, r3
  80006ae:	f7ff ff4d 	bl	800054c <GPIO_WritePin>
 		GPIO_TogglePin(LED.pGPIOx, GPIO_PIN_5);
- 80006b2:	4b22      	ldr	r3, [pc, #136]	; (800073c <main+0xc4>)
+ 80006b2:	4b23      	ldr	r3, [pc, #140]	; (8000740 <main+0xc8>)
  80006b4:	681b      	ldr	r3, [r3, #0]
  80006b6:	2105      	movs	r1, #5
  80006b8:	4618      	mov	r0, r3
  80006ba:	f7ff ff6e 	bl	800059a <GPIO_TogglePin>
 		delay(150000);
- 80006be:	4821      	ldr	r0, [pc, #132]	; (8000744 <main+0xcc>)
+ 80006be:	4822      	ldr	r0, [pc, #136]	; (8000748 <main+0xd0>)
  80006c0:	f7ff ff7f 	bl	80005c2 <delay>
 
 		if(!GPIO_ReadPin(BUTTON.pGPIOx, GPIO_PIN_13)){
- 80006c4:	4b20      	ldr	r3, [pc, #128]	; (8000748 <main+0xd0>)
+ 80006c4:	4b21      	ldr	r3, [pc, #132]	; (800074c <main+0xd4>)
  80006c6:	681b      	ldr	r3, [r3, #0]
  80006c8:	210d      	movs	r1, #13
  80006ca:	4618      	mov	r0, r3
@@ -837,70 +837,69 @@ int main(void)
  80006d4:	d1d5      	bne.n	8000682 <main+0xa>
 
 			while(res){
- 80006d6:	e02d      	b.n	8000734 <main+0xbc>
+ 80006d6:	e02f      	b.n	8000738 <main+0xc0>
 
 				GPIO_TogglePin(LED.pGPIOx, GPIO_PIN_6);
- 80006d8:	4b18      	ldr	r3, [pc, #96]	; (800073c <main+0xc4>)
+ 80006d8:	4b19      	ldr	r3, [pc, #100]	; (8000740 <main+0xc8>)
  80006da:	681b      	ldr	r3, [r3, #0]
  80006dc:	2106      	movs	r1, #6
  80006de:	4618      	mov	r0, r3
  80006e0:	f7ff ff5b 	bl	800059a <GPIO_TogglePin>
 				GPIO_TogglePin(LED.pGPIOx, GPIO_PIN_5);
- 80006e4:	4b15      	ldr	r3, [pc, #84]	; (800073c <main+0xc4>)
+ 80006e4:	4b16      	ldr	r3, [pc, #88]	; (8000740 <main+0xc8>)
  80006e6:	681b      	ldr	r3, [r3, #0]
  80006e8:	2105      	movs	r1, #5
  80006ea:	4618      	mov	r0, r3
  80006ec:	f7ff ff55 	bl	800059a <GPIO_TogglePin>
-				delay(100000);
- 80006f0:	4816      	ldr	r0, [pc, #88]	; (800074c <main+0xd4>)
- 80006f2:	f7ff ff66 	bl	80005c2 <delay>
+				delay(50000);
+ 80006f0:	f24c 3050 	movw	r0, #50000	; 0xc350
+ 80006f4:	f7ff ff65 	bl	80005c2 <delay>
 
 				GPIO_WritePin(LED.pGPIOx, GPIO_PIN_6, RESET);
- 80006f6:	4b11      	ldr	r3, [pc, #68]	; (800073c <main+0xc4>)
- 80006f8:	681b      	ldr	r3, [r3, #0]
- 80006fa:	2200      	movs	r2, #0
- 80006fc:	2106      	movs	r1, #6
- 80006fe:	4618      	mov	r0, r3
- 8000700:	f7ff ff24 	bl	800054c <GPIO_WritePin>
+ 80006f8:	4b11      	ldr	r3, [pc, #68]	; (8000740 <main+0xc8>)
+ 80006fa:	681b      	ldr	r3, [r3, #0]
+ 80006fc:	2200      	movs	r2, #0
+ 80006fe:	2106      	movs	r1, #6
+ 8000700:	4618      	mov	r0, r3
+ 8000702:	f7ff ff23 	bl	800054c <GPIO_WritePin>
 				GPIO_WritePin(LED.pGPIOx, GPIO_PIN_5, RESET);
- 8000704:	4b0d      	ldr	r3, [pc, #52]	; (800073c <main+0xc4>)
- 8000706:	681b      	ldr	r3, [r3, #0]
- 8000708:	2200      	movs	r2, #0
- 800070a:	2105      	movs	r1, #5
- 800070c:	4618      	mov	r0, r3
- 800070e:	f7ff ff1d 	bl	800054c <GPIO_WritePin>
-				delay(100000);
- 8000712:	480e      	ldr	r0, [pc, #56]	; (800074c <main+0xd4>)
- 8000714:	f7ff ff55 	bl	80005c2 <delay>
+ 8000706:	4b0e      	ldr	r3, [pc, #56]	; (8000740 <main+0xc8>)
+ 8000708:	681b      	ldr	r3, [r3, #0]
+ 800070a:	2200      	movs	r2, #0
+ 800070c:	2105      	movs	r1, #5
+ 800070e:	4618      	mov	r0, r3
+ 8000710:	f7ff ff1c 	bl	800054c <GPIO_WritePin>
+				delay(50000);
+ 8000714:	f24c 3050 	movw	r0, #50000	; 0xc350
+ 8000718:	f7ff ff53 	bl	80005c2 <delay>
 
 				if(!GPIO_ReadPin(BUTTON.pGPIOx, GPIO_PIN_13))
- 8000718:	4b0b      	ldr	r3, [pc, #44]	; (8000748 <main+0xd0>)
- 800071a:	681b      	ldr	r3, [r3, #0]
- 800071c:	210d      	movs	r1, #13
- 800071e:	4618      	mov	r0, r3
- 8000720:	f7ff ff00 	bl	8000524 <GPIO_ReadPin>
- 8000724:	4603      	mov	r3, r0
- 8000726:	2b00      	cmp	r3, #0
- 8000728:	d102      	bne.n	8000730 <main+0xb8>
+ 800071c:	4b0b      	ldr	r3, [pc, #44]	; (800074c <main+0xd4>)
+ 800071e:	681b      	ldr	r3, [r3, #0]
+ 8000720:	210d      	movs	r1, #13
+ 8000722:	4618      	mov	r0, r3
+ 8000724:	f7ff fefe 	bl	8000524 <GPIO_ReadPin>
+ 8000728:	4603      	mov	r3, r0
+ 800072a:	2b00      	cmp	r3, #0
+ 800072c:	d102      	bne.n	8000734 <main+0xbc>
 					res = 1;
- 800072a:	2301      	movs	r3, #1
- 800072c:	71fb      	strb	r3, [r7, #7]
- 800072e:	e001      	b.n	8000734 <main+0xbc>
+ 800072e:	2301      	movs	r3, #1
+ 8000730:	71fb      	strb	r3, [r7, #7]
+ 8000732:	e001      	b.n	8000738 <main+0xc0>
 				else
 					res = 0;
- 8000730:	2300      	movs	r3, #0
- 8000732:	71fb      	strb	r3, [r7, #7]
+ 8000734:	2300      	movs	r3, #0
+ 8000736:	71fb      	strb	r3, [r7, #7]
 			while(res){
- 8000734:	79fb      	ldrb	r3, [r7, #7]
- 8000736:	2b00      	cmp	r3, #0
- 8000738:	d1ce      	bne.n	80006d8 <main+0x60>
+ 8000738:	79fb      	ldrb	r3, [r7, #7]
+ 800073a:	2b00      	cmp	r3, #0
+ 800073c:	d1cc      	bne.n	80006d8 <main+0x60>
 	while(1){
- 800073a:	e7a2      	b.n	8000682 <main+0xa>
- 800073c:	2000001c 	.word	0x2000001c
- 8000740:	00249f00 	.word	0x00249f00
- 8000744:	000249f0 	.word	0x000249f0
- 8000748:	20000034 	.word	0x20000034
- 800074c:	000186a0 	.word	0x000186a0
+ 800073e:	e7a0      	b.n	8000682 <main+0xa>
+ 8000740:	2000001c 	.word	0x2000001c
+ 8000744:	00249f00 	.word	0x00249f00
+ 8000748:	000249f0 	.word	0x000249f0
+ 800074c:	20000034 	.word	0x20000034
 
 08000750 <Reset_Handler>:
 

@@ -115,11 +115,11 @@ int main(void)
 
 				GPIO_TogglePin(LED.pGPIOx, GPIO_PIN_6);
 				GPIO_TogglePin(LED.pGPIOx, GPIO_PIN_5);
-				delay(100000);
+				delay(50000);
 
 				GPIO_WritePin(LED.pGPIOx, GPIO_PIN_6, RESET);
 				GPIO_WritePin(LED.pGPIOx, GPIO_PIN_5, RESET);
-				delay(100000);
+				delay(50000);
 
 				if(!GPIO_ReadPin(BUTTON.pGPIOx, GPIO_PIN_13))
 					res = 1;
