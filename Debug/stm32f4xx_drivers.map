@@ -96,6 +96,7 @@ Discarded input sections
  .group         0x0000000000000000        0xc ./Src/main.o
  .group         0x0000000000000000        0xc ./Src/main.o
  .group         0x0000000000000000        0xc ./Src/main.o
+ .group         0x0000000000000000        0xc ./Src/main.o
  .text          0x0000000000000000        0x0 ./Src/main.o
  .data          0x0000000000000000        0x0 ./Src/main.o
  .bss           0x0000000000000000        0x0 ./Src/main.o
@@ -655,8 +656,8 @@ LOAD /opt/st/stm32cubeide_1.14.0/plugins/com.st.stm32cube.ide.mcu.externaltools.
  *(.bss*)
  .bss.LED       0x000000002000001c        0xc ./Src/main.o
                 0x000000002000001c                LED
- .bss.LED2      0x0000000020000028        0xc ./Src/main.o
-                0x0000000020000028                LED2
+ .bss.LED_2     0x0000000020000028        0xc ./Src/main.o
+                0x0000000020000028                LED_2
  .bss.BUTTON    0x0000000020000034        0xc ./Src/main.o
                 0x0000000020000034                BUTTON
  *(COMMON)
@@ -709,10 +710,10 @@ LOAD /opt/st/stm32cubeide_1.14.0/plugins/com.st.stm32cube.ide.mcu.externaltools.
  .comment       0x0000000000000043       0x44 ./Drivers/Src/stm32f446xx_gpio.o
  .comment       0x0000000000000043       0x44 ./Src/main.o
 
-.debug_info     0x0000000000000000      0xb77
+.debug_info     0x0000000000000000      0xb7e
  .debug_info    0x0000000000000000      0x6ed ./Drivers/Src/stm32f446xx_gpio.o
- .debug_info    0x00000000000006ed      0x467 ./Src/main.o
- .debug_info    0x0000000000000b54       0x23 ./Startup/startup_stm32f446retx.o
+ .debug_info    0x00000000000006ed      0x46e ./Src/main.o
+ .debug_info    0x0000000000000b5b       0x23 ./Startup/startup_stm32f446retx.o
 
 .debug_abbrev   0x0000000000000000      0x2fc
  .debug_abbrev  0x0000000000000000      0x161 ./Drivers/Src/stm32f446xx_gpio.o
@@ -736,7 +737,7 @@ LOAD /opt/st/stm32cubeide_1.14.0/plugins/com.st.stm32cube.ide.mcu.externaltools.
  .debug_rnglists
                 0x0000000000000061       0x19 ./Startup/startup_stm32f446retx.o
 
-.debug_macro    0x0000000000000000     0x124f
+.debug_macro    0x0000000000000000     0x127a
  .debug_macro   0x0000000000000000       0x7c ./Drivers/Src/stm32f446xx_gpio.o
  .debug_macro   0x000000000000007c      0xaa2 ./Drivers/Src/stm32f446xx_gpio.o
  .debug_macro   0x0000000000000b1e       0x22 ./Drivers/Src/stm32f446xx_gpio.o
@@ -746,20 +747,21 @@ LOAD /opt/st/stm32cubeide_1.14.0/plugins/com.st.stm32cube.ide.mcu.externaltools.
  .debug_macro   0x0000000000000d22       0x6a ./Drivers/Src/stm32f446xx_gpio.o
  .debug_macro   0x0000000000000d8c      0x1df ./Drivers/Src/stm32f446xx_gpio.o
  .debug_macro   0x0000000000000f6b      0x132 ./Drivers/Src/stm32f446xx_gpio.o
- .debug_macro   0x000000000000109d       0x7a ./Src/main.o
- .debug_macro   0x0000000000001117      0x138 ./Src/main.o
+ .debug_macro   0x000000000000109d       0x83 ./Src/main.o
+ .debug_macro   0x0000000000001120       0x22 ./Src/main.o
+ .debug_macro   0x0000000000001142      0x138 ./Src/main.o
 
-.debug_line     0x0000000000000000      0xb95
+.debug_line     0x0000000000000000      0xba6
  .debug_line    0x0000000000000000      0x6ba ./Drivers/Src/stm32f446xx_gpio.o
- .debug_line    0x00000000000006ba      0x460 ./Src/main.o
- .debug_line    0x0000000000000b1a       0x7b ./Startup/startup_stm32f446retx.o
+ .debug_line    0x00000000000006ba      0x471 ./Src/main.o
+ .debug_line    0x0000000000000b2b       0x7b ./Startup/startup_stm32f446retx.o
 
-.debug_str      0x0000000000000000     0x4956
+.debug_str      0x0000000000000000     0x49a2
  .debug_str     0x0000000000000000     0x48f4 ./Drivers/Src/stm32f446xx_gpio.o
                                        0x4a6e (size before relaxing)
- .debug_str     0x00000000000048f4       0x33 ./Src/main.o
-                                       0x491f (size before relaxing)
- .debug_str     0x0000000000004927       0x2f ./Startup/startup_stm32f446retx.o
+ .debug_str     0x00000000000048f4       0x7f ./Src/main.o
+                                       0x4971 (size before relaxing)
+ .debug_str     0x0000000000004973       0x2f ./Startup/startup_stm32f446retx.o
                                          0x79 (size before relaxing)
 
 .debug_frame    0x0000000000000000      0x1ec

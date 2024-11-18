@@ -48,15 +48,17 @@ int main(void)
 }
 */
 
+#include <stdbool.h>
 #include <stdint.h>
 #include <stm32f446xx.h>
 #include <stm32f446xx_gpio.h>
 
 GPIO_handle_t LED;
-GPIO_handle_t LED2;
+GPIO_handle_t LED_2;
 GPIO_handle_t BUTTON;
 
-void delay(uint32_t cnt){
+void delay(uint32_t cnt)
+{
 	while(cnt)
 		cnt--;
 }
@@ -72,14 +74,14 @@ void GPIO_LED_Init(void)
 
 	GPIO_Init(&LED);
 
-	LED2.pGPIOx = GPIOA;
-	LED2.GPIO_config.GPIO_Mode = GPIO_Mode_OUT;
-	LED2.GPIO_config.GPIO_OType = GPIO_OType_PP;
-	LED2.GPIO_config.GPIO_Pin =	GPIO_PIN_5;
-	LED2.GPIO_config.GPIO_PuPd = GPIO_PuPd_NONE;
-	LED2.GPIO_config.GPIO_Speed = GPIO_Speed_LOW;
+	LED_2.pGPIOx = GPIOA;
+	LED_2.GPIO_config.GPIO_Mode = GPIO_Mode_OUT;
+	LED_2.GPIO_config.GPIO_OType = GPIO_OType_PP;
+	LED_2.GPIO_config.GPIO_Pin =	GPIO_PIN_5;
+	LED_2.GPIO_config.GPIO_PuPd = GPIO_PuPd_NONE;
+	LED_2.GPIO_config.GPIO_Speed = GPIO_Speed_LOW;
 
-	GPIO_Init(&LED2);
+	GPIO_Init(&LED_2);
 
 	BUTTON.pGPIOx = GPIOC;
 	BUTTON.GPIO_config.GPIO_Mode = GPIO_Mode_IN;
@@ -88,49 +90,41 @@ void GPIO_LED_Init(void)
 	BUTTON.GPIO_config.GPIO_Speed = GPIO_Speed_LOW;
 
 	GPIO_Init(&BUTTON);
-
 }
 
 
 int main(void)
 {
 	GPIO_LED_Init();
-	
 
-	while(1){
-
-		uint8_t res = 1;
+	while(true){
+		bool rest = true;
 
 		GPIO_TogglePin(LED.pGPIOx, GPIO_PIN_6);
 		GPIO_TogglePin(LED.pGPIOx, GPIO_PIN_5);
-		delay(2400000);
+		delay(1500000);
 
-		GPIO_WritePin(LED.pGPIOx, GPIO_PIN_6, RESET);
+		GPIO_TogglePin(LED.pGPIOx, GPIO_PIN_6);
 		GPIO_TogglePin(LED.pGPIOx, GPIO_PIN_5);
-		delay(150000);
+		delay(500000);
 
 		if(!GPIO_ReadPin(BUTTON.pGPIOx, GPIO_PIN_13)){
-
-			while(res){
-
+			while(rest){
 				GPIO_TogglePin(LED.pGPIOx, GPIO_PIN_6);
 				GPIO_TogglePin(LED.pGPIOx, GPIO_PIN_5);
-				delay(50000);
+				delay(80000);
 
 				GPIO_WritePin(LED.pGPIOx, GPIO_PIN_6, RESET);
 				GPIO_WritePin(LED.pGPIOx, GPIO_PIN_5, RESET);
-				delay(50000);
+				delay(80000);
 
 				if(!GPIO_ReadPin(BUTTON.pGPIOx, GPIO_PIN_13))
-					res = 1;
+					rest = true;
 				else
-					res = 0;
-
+					rest = false;
 			}
 		}
-			
-
 	}
 
-
+	return 0;
 }
