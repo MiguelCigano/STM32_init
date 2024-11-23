@@ -97,7 +97,6 @@ typedef enum{
 	GPIO_ALTFUN_15
 }GPIO_AltFun_t;
 
-
 /*
  *	Estructura de configuración a la cual se accede desde el Handle
  */
